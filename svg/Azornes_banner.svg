@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 52px;
+      fill: url(#gradient);
+      filter: url(#glow);
+    }
+    .letter {
+      animation: float 6s ease-in-out infinite;
+    }
+    .letter:nth-child(1) { animation-delay: 0s; }
+    .letter:nth-child(2) { animation-delay: 0.1s; }
+    .letter:nth-child(3) { animation-delay: 0.2s; }
+    .letter:nth-child(4) { animation-delay: 0.3s; }
+    .letter:nth-child(5) { animation-delay: 0.4s; }
+    .letter:nth-child(6) { animation-delay: 0.5s; }
+    .letter:nth-child(7) { animation-delay: 0.6s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      33% { transform: translateY(-3px) scale(1.02); }
+      66% { transform: translateY(2px) scale(0.98); }
+    }
+    .gradient-shift {
+      animation: gradientShift 8s ease-in-out infinite;
+    }
+    @keyframes gradientShift {
+      0% { stop-color: #ff0055; }
+      25% { stop-color: #ff0080; }
+      50% { stop-color: #d400ff; }
+      75% { stop-color: #9b00ff; }
+      100% { stop-color: #ff0055; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" class="gradient-shift" stop-color="#ff0055"/>
+      <stop offset="50%" class="gradient-shift" stop-color="#ff0080"/>
+      <stop offset="100%" class="gradient-shift" stop-color="#d400ff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur">
+        <animate attributeName="stdDeviation" values="3;6;3" dur="4s" repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="0.2 0 0 0 0  0 0.1 0 0 0  0 0 0.3 0 0  0 0 0 18 -3" result="glow"/>
+      <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+    </filter>
+  </defs>
+  <g class="text">
+    <text x="110" y="60" text-anchor="middle" class="letter">A</text>
+    <text x="140" y="60" text-anchor="middle" class="letter">z</text>
+    <text x="165" y="60" text-anchor="middle" class="letter">o</text>
+    <text x="190" y="60" text-anchor="middle" class="letter">r</text>
+    <text x="215" y="60" text-anchor="middle" class="letter">n</text>
+    <text x="240" y="60" text-anchor="middle" class="letter">e</text>
+    <text x="265" y="60" text-anchor="middle" class="letter">s</text>
+  </g>
+</svg>
