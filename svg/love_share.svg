@@ -1,280 +1,346 @@
-<svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
-    <style>
-        .text {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-weight: 300;
-            font-size: 10px;
-            letter-spacing: 0.4px;
-            fill: url(#gradient);
-            filter: url(#glow);
-        }
-        .letter {
-            animation: float 5s ease-in-out infinite;
-        }
-        .letter:nth-child(1) { animation-delay: 0s; }
-        .letter:nth-child(2) { animation-delay: 0.05s; }
-        .letter:nth-child(3) { animation-delay: 0.1s; }
-        .letter:nth-child(4) { animation-delay: 0.15s; }
-        .letter:nth-child(5) { animation-delay: 0.2s; }
-        .letter:nth-child(6) { animation-delay: 0.25s; }
-        .letter:nth-child(7) { animation-delay: 0.3s; }
-        .letter:nth-child(8) { animation-delay: 0.35s; }
-        .letter:nth-child(9) { animation-delay: 0.4s; }
-        .letter:nth-child(10) { animation-delay: 0.45s; }
-        .letter:nth-child(11) { animation-delay: 0.5s; }
-        .letter:nth-child(12) { animation-delay: 0.55s; }
-        .letter:nth-child(13) { animation-delay: 0.6s; }
-        .letter:nth-child(14) { animation-delay: 0.65s; }
-        .letter:nth-child(15) { animation-delay: 0.7s; }
-        .letter:nth-child(16) { animation-delay: 0.75s; }
-        .letter:nth-child(17) { animation-delay: 0.8s; }
-        .letter:nth-child(18) { animation-delay: 0.85s; }
-        .letter:nth-child(19) { animation-delay: 0.9s; }
-        .letter:nth-child(20) { animation-delay: 0.95s; }
-        .letter:nth-child(21) { animation-delay: 1s; }
-        .letter:nth-child(22) { animation-delay: 1.05s; }
-        .letter:nth-child(23) { animation-delay: 1.1s; }
-        .letter:nth-child(24) { animation-delay: 1.15s; }
-        .letter:nth-child(25) { animation-delay: 1.2s; }
-        .letter:nth-child(26) { animation-delay: 1.25s; }
-        .letter:nth-child(27) { animation-delay: 1.3s; }
-        .letter:nth-child(28) { animation-delay: 1.35s; }
-        .letter:nth-child(29) { animation-delay: 1.4s; }
-        .letter:nth-child(30) { animation-delay: 1.45s; }
-        .letter:nth-child(31) { animation-delay: 1.5s; }
-        .letter:nth-child(32) { animation-delay: 1.55s; }
-        .letter:nth-child(33) { animation-delay: 1.6s; }
-        .letter:nth-child(34) { animation-delay: 1.65s; }
-        .letter:nth-child(35) { animation-delay: 1.7s; }
-        .letter:nth-child(36) { animation-delay: 1.75s; }
-        .letter:nth-child(37) { animation-delay: 1.8s; }
-        .letter:nth-child(38) { animation-delay: 1.85s; }
-        .letter:nth-child(39) { animation-delay: 1.9s; }
-        .letter:nth-child(40) { animation-delay: 1.95s; }
-        .letter:nth-child(41) { animation-delay: 2.0s; }
-        .letter:nth-child(42) { animation-delay: 2.05s; }
-        .letter:nth-child(43) { animation-delay: 2.1s; }
-        .letter:nth-child(44) { animation-delay: 2.15s; }
-        .letter:nth-child(45) { animation-delay: 2.2s; }
-        .letter:nth-child(46) { animation-delay: 2.25s; }
-        .letter:nth-child(47) { animation-delay: 2.3s; }
+<svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Show some heart by starring some of the repositories!">
+<style>
+  .text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    fill: url(#gradient);
+    filter: url(#glow);
+  }
+  .letter { animation: float 5s ease-in-out infinite; }
+  .heart-letter {
+    fill: url(#heartGradient);
+    animation: heartPulse 2.6s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-1px); }
-        }
+  /* Wzmocnione: trzy warstwy miękkiego, pulsyjącego tła za sercem */
+  .heart-glow {
+    fill: url(#heartBgGradient);
+    filter: url(#heartSoftGlow);
+    opacity: 0.32; /* było ~0.18 */
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: heartBgPulse 3.6s ease-in-out infinite;
+  }
+  .heart-glow.second {
+    opacity: 0.22;
+    animation-delay: 1.2s; /* przesunięcie fazy */
+  }
+  .heart-glow.third {
+    opacity: 0.14;
+    animation-delay: 2.4s; /* trzecia warstwa dla głębi */
+  }
 
-        .gradient-shift {
-            animation: gradientShift 10s ease-in-out infinite;
-        }
-        @keyframes gradientShift {
-            0% { stop-color: #7dd3fc; }
-            25% { stop-color: #a5b4fc; }
-            50% { stop-color: #f9a8d4; }
-            75% { stop-color: #fed7aa; }
-            100% { stop-color: #7dd3fc; }
-        }
+  /* Wzmocnione pierścienie: grubsze i bardziej widoczne, spłaszczone pionowo */
+  .heart-ring {
+    fill: none;
+    stroke: url(#heartGradient);
+    stroke-width: 0.5; /* było 0.35 */
+    opacity: 0.45; /* było 0.28 */
+    filter: url(#heartSoftGlow);
+    vector-effect: non-scaling-stroke;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .rings-squash {
+    transform: scale(1, 0.55);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
 
-        .bg-line {
-            stroke: url(#bgGradient);
-            stroke-width: 0.6;
-            opacity: 0.4;
-            animation: linePulse 6s ease-in-out infinite;
-        }
-        @keyframes linePulse {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.5; }
-        }
+  .letter:nth-child(1) { animation-delay: 0s; }
+  .letter:nth-child(2) { animation-delay: 0.05s; }
+  .letter:nth-child(3) { animation-delay: 0.1s; }
+  .letter:nth-child(4) { animation-delay: 0.15s; }
+  .letter:nth-child(5) { animation-delay: 0.2s; }
+  .letter:nth-child(6) { animation-delay: 0.25s; }
+  .letter:nth-child(7) { animation-delay: 0.3s; }
+  .letter:nth-child(8) { animation-delay: 0.35s; }
+  .letter:nth-child(9) { animation-delay: 0.4s; }
+  .letter:nth-child(10) { animation-delay: 0.45s; }
+  .letter:nth-child(11) { animation-delay: 0.5s; }
+  .letter:nth-child(12) { animation-delay: 0.55s; }
+  .letter:nth-child(13) { animation-delay: 0.6s; }
+  .letter:nth-child(14) { animation-delay: 0.65s; }
+  .letter:nth-child(15) { animation-delay: 0.7s; }
+  .letter:nth-child(16) { animation-delay: 0.75s; }
+  .letter:nth-child(17) { animation-delay: 0.8s; }
+  .letter:nth-child(18) { animation-delay: 0.85s; }
+  .letter:nth-child(19) { animation-delay: 0.9s; }
+  .letter:nth-child(20) { animation-delay: 0.95s; }
+  .letter:nth-child(21) { animation-delay: 1s; }
+  .letter:nth-child(22) { animation-delay: 1.05s; }
+  .letter:nth-child(23) { animation-delay: 1.1s; }
+  .letter:nth-child(24) { animation-delay: 1.15s; }
+  .letter:nth-child(25) { animation-delay: 1.2s; }
+  .letter:nth-child(26) { animation-delay: 1.25s; }
+  .letter:nth-child(27) { animation-delay: 1.3s; }
+  .letter:nth-child(28) { animation-delay: 1.35s; }
+  .letter:nth-child(29) { animation-delay: 1.4s; }
+  .letter:nth-child(30) { animation-delay: 1.45s; }
+  .letter:nth-child(31) { animation-delay: 1.5s; }
+  .letter:nth-child(32) { animation-delay: 1.55s; }
+  .letter:nth-child(33) { animation-delay: 1.6s; }
+  .letter:nth-child(34) { animation-delay: 1.65s; }
+  .letter:nth-child(35) { animation-delay: 1.7s; }
+  .letter:nth-child(36) { animation-delay: 1.75s; }
+  .letter:nth-child(37) { animation-delay: 1.8s; }
+  .letter:nth-child(38) { animation-delay: 1.85s; }
+  .letter:nth-child(39) { animation-delay: 1.9s; }
+  .letter:nth-child(40) { animation-delay: 1.95s; }
+  .letter:nth-child(41) { animation-delay: 2.0s; }
+  .letter:nth-child(42) { animation-delay: 2.05s; }
+  .letter:nth-child(43) { animation-delay: 2.1s; }
+  .letter:nth-child(44) { animation-delay: 2.15s; }
+  .letter:nth-child(45) { animation-delay: 2.2s; }
+  .letter:nth-child(46) { animation-delay: 2.25s; }
+  .letter:nth-child(47) { animation-delay: 2.3s; }
 
-        .bg-dots circle {
-            animation: dotFloat 7s ease-in-out infinite;
-        }
-        .bg-dots circle:nth-child(1) { animation-delay: 0s; }
-        .bg-dots circle:nth-child(2) { animation-delay: 1s; }
-        .bg-dots circle:nth-child(3) { animation-delay: 2s; }
-        .bg-dots circle:nth-child(4) { animation-delay: 3s; }
-        .bg-dots circle:nth-child(5) { animation-delay: 4s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-1px); }
+  }
 
-        @keyframes dotFloat {
-            0%, 100% { transform: translateY(0px); opacity: 0.15; }
-            50% { transform: translateY(-1px); opacity: 0.35; }
-        }
+  .gradient-shift { animation: gradientShift 10s ease-in-out infinite; }
+  @keyframes gradientShift {
+    0% { stop-color: #7dd3fc; }
+    25% { stop-color: #a5b4fc; }
+    50% { stop-color: #f9a8d4; }
+    75% { stop-color: #fed7aa; }
+    100% { stop-color: #7dd3fc; }
+  }
 
-        .particle {
-            animation: float-particle 8s linear infinite;
-            fill: #f9a8d4;
-        }
-        @keyframes float-particle {
-            0% {
-                transform: translateY(15px) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-3px) translateX(10px);
-                opacity: 0;
-            }
-        }
+  .bg-line {
+    stroke: url(#bgGradient);
+    stroke-width: 0.6;
+    opacity: 0.4;
+    animation: linePulse 6s ease-in-out infinite;
+  }
+  @keyframes linePulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
 
-        .wave {
-            animation: wave-motion 7s ease-in-out infinite;
-        }
-        @keyframes wave-motion {
-            0%, 100% {
-                d: path("M0,10 Q100,8 200,10 T400,10");
-            }
-            50% {
-                d: path("M0,10 Q100,12 200,10 T400,10");
-            }
-        }
+  .bg-dots circle { animation: dotFloat 7s ease-in-out infinite; }
+  .bg-dots circle:nth-child(1) { animation-delay: 0s; }
+  .bg-dots circle:nth-child(2) { animation-delay: 1s; }
+  .bg-dots circle:nth-child(3) { animation-delay: 2s; }
+  .bg-dots circle:nth-child(4) { animation-delay: 3s; }
+  .bg-dots circle:nth-child(5) { animation-delay: 4s; }
+  @keyframes dotFloat {
+    0%, 100% { transform: translateY(0px); opacity: 0.15; }
+    50% { transform: translateY(-1px); opacity: 0.35; }
+  }
 
-        .bg-gradient-shift {
-            animation: bgGradientShift 9s ease-in-out infinite;
-        }
-        @keyframes bgGradientShift {
-            0% { stop-color: #020617; }
-            50% { stop-color: #020617; }
-            100% { stop-color: #020617; }
-        }
+  .particle { animation: float-particle 8s linear infinite; fill: #f9a8d4; }
+  @keyframes float-particle {
+    0% { transform: translateY(15px) translateX(0); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-3px) translateX(10px); opacity: 0; }
+  }
 
-        .bg-shape {
-            fill: url(#shapeGradient);
-            opacity: 0.1;
-            animation: subtleMorph 10s ease-in-out infinite;
-        }
-        .bg-shape:nth-child(1) { animation-delay: 0s; }
-        .bg-shape:nth-child(2) { animation-delay: 2s; }
+  .wave { animation: wave-motion 7s ease-in-out infinite; }
+  @keyframes wave-motion {
+    0%, 100% { d: path("M0,10 Q100,8 200,10 T400,10"); }
+    50% { d: path("M0,10 Q100,12 200,10 T400,10"); }
+  }
 
-        @keyframes subtleMorph {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.06; }
-            50% { transform: scale(1.03) rotate(3deg); opacity: 0.14; }
-        }
+  @keyframes heartPulse {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    33% { transform: translateY(-0.4px) scale(1.02); }
+    66% { transform: translateY(0.3px) scale(0.98); }
+  }
 
-        .text-glow-layer {
-            fill: none;
-            stroke: url(#gradient);
-            stroke-width: 0.3;
-            opacity: 0.3;
-            filter: url(#glow-light);
-        }
-    </style>
-    <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" class="gradient-shift" stop-color="#7dd3fc"/>
-            <stop offset="50%" class="gradient-shift" stop-color="#a5b4fc"/>
-            <stop offset="100%" class="gradient-shift" stop-color="#f9a8d4"/>
-        </linearGradient>
-        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" class="bg-gradient-shift" stop-color="#020617"/>
-            <stop offset="100%" stop-color="#020617"/>
-        </linearGradient>
-        <linearGradient id="shapeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.1"/>
-        </linearGradient>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur">
-                <animate attributeName="stdDeviation" values="1;1.6;1" dur="5s" repeatCount="indefinite"/>
-            </feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="0.1 0 0 0 0  0 0.2 0 0 0  0 0 0.4 0 0  0 0 0 10 -4" result="glow"/>
-            <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
-        </filter>
-        <filter id="glow-light" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" result="blur"/>
-            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.8  0 0 0 0 1  0 0 0 6 -5"/>
-        </filter>
-    </defs>
+  /* Wzmocniony oddech tła (spłaszczony pionowo, silniejszy poziomo) */
+  @keyframes heartBgPulse {
+    0% { transform: scale(1, 0.55); opacity: 0.32; }
+    50% { transform: scale(3, 0.55); opacity: 0.14; }
+    100% { transform: scale(1, 0.55); opacity: 0.32; }
+  }
 
-    <g class="background">
-        <!-- Transparent background: no solid rect, no frame -->
-        <path class="wave" d="M0,10 Q100,8 200,10 T400,10" stroke="url(#shapeGradient)" stroke-width="0.6" fill="none" opacity="0.35"/>
+  .bg-gradient-shift { animation: bgGradientShift 9s ease-in-out infinite; }
+  @keyframes bgGradientShift {
+    0% { stop-color: #020617; }
+    50% { stop-color: #020617; }
+    100% { stop-color: #020617; }
+  }
 
-        <g class="bg-line">
-            <path d="M16 6 H384"/>
-            <path d="M16 14 H384" opacity="0.6"/>
-        </g>
+  .bg-shape { fill: url(#shapeGradient); opacity: 0.1; animation: subtleMorph 10s ease-in-out infinite; }
+  .bg-shape:nth-child(1) { animation-delay: 0s; }
+  .bg-shape:nth-child(2) { animation-delay: 2s; }
+  @keyframes subtleMorph {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.06; }
+    50% { transform: scale(1.03) rotate(3deg); opacity: 0.14; }
+  }
 
-        <g class="bg-dots" fill="#38bdf8">
-            <circle cx="34" cy="6" r="0.7"/>
-            <circle cx="90" cy="14" r="0.7"/>
-            <circle cx="210" cy="6" r="0.7"/>
-            <circle cx="310" cy="14" r="0.7"/>
-            <circle cx="366" cy="8" r="0.7"/>
-        </g>
+  .text-glow-layer { fill: none; stroke: url(#gradient); stroke-width: 0.3; opacity: 0.3; filter: url(#glow-light); }
+</style>
 
-        <g opacity="0.6">
-            <circle class="particle" cx="60" cy="13" r="0.6" style="animation-delay:0s"/>
-            <circle class="particle" cx="140" cy="15" r="0.6" style="animation-delay:1.5s"/>
-            <circle class="particle" cx="220" cy="15" r="0.6" style="animation-delay:3s"/>
-            <circle class="particle" cx="300" cy="13" r="0.6" style="animation-delay:4.5s"/>
-            <circle class="particle" cx="340" cy="11" r="0.6" style="animation-delay:6s"/>
-        </g>
+<defs>
+  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" class="gradient-shift" stop-color="#7dd3fc"/>
+    <stop offset="50%" class="gradient-shift" stop-color="#a5b4fc"/>
+    <stop offset="100%" class="gradient-shift" stop-color="#f9a8d4"/>
+  </linearGradient>
+  <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" class="bg-gradient-shift" stop-color="#020617"/>
+    <stop offset="100%" stop-color="#020617"/>
+  </linearGradient>
+  <linearGradient id="shapeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.1"/>
+  </linearGradient>
 
-        <g>
-            <rect class="bg-shape" x="18" y="4" width="60" height="6" rx="3"/>
-            <rect class="bg-shape" x="302" y="10" width="60" height="5" rx="2.5"/>
-        </g>
+  <!-- Kolory serca -->
+  <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#ff0033">
+      <animate attributeName="stop-color" values="#ff0033;#ff4d88;#ff0033" dur="4s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="50%" stop-color="#ff4d88">
+      <animate attributeName="stop-color" values="#ff4d88;#ff99aa;#ff4d88" dur="4s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#ff99aa">
+      <animate attributeName="stop-color" values="#ff99aa;#ff0033;#ff99aa" dur="4s" repeatCount="indefinite"/>
+    </stop>
+  </linearGradient>
+
+  <!-- Wzmocnione, rozjaśnione tło pod sercem -->
+  <radialGradient id="heartBgGradient" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ff1a4d" stop-opacity="1">
+      <animate attributeName="stop-color" values="#ff1a4d;#ff4d88;#ff1a4d" dur="3.6s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="60%" stop-color="#ff4d88" stop-opacity="0.5">
+      <animate attributeName="stop-color" values="#ff4d88;#ff99aa;#ff4d88" dur="3.6s" repeatCount="indefinite"/>
+    </stop>
+    <stop offset="100%" stop-color="#ff99aa" stop-opacity="0">
+      <animate attributeName="stop-color" values="#ff99aa;#ff1a4d;#ff99aa" dur="3.6s" repeatCount="indefinite"/>
+    </stop>
+  </radialGradient>
+
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur">
+      <animate attributeName="stdDeviation" values="1;1.6;1" dur="5s" repeatCount="indefinite"/>
+    </feGaussianBlur>
+    <feColorMatrix in="blur" mode="matrix" values="0.1 0 0 0 0  0 0.2 0 0 0  0 0 0.4 0 0  0 0 0 10 -4" result="glow"/>
+    <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+  </filter>
+
+  <filter id="glow-light" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" result="blur"/>
+    <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.8  0 0 0 0 1  0 0 0 6 -5"/>
+  </filter>
+
+  <!-- Wzmocniony miękki blur dla poświaty serca -->
+  <filter id="heartSoftGlow" x="-200%" y="-200%" width="400%" height="400%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2.2"/>
+  </filter>
+</defs>
+
+<g class="background">
+  <path class="wave" d="M0,10 Q100,8 200,10 T400,10" stroke="url(#shapeGradient)" stroke-width="0.6" fill="none" opacity="0.35"/>
+  <g class="bg-line">
+    <path d="M16 6 H384"/>
+    <path d="M16 14 H384" opacity="0.6"/>
+  </g>
+  <g class="bg-dots" fill="#38bdf8">
+    <circle cx="34" cy="6" r="0.7"/>
+    <circle cx="90" cy="14" r="0.7"/>
+    <circle cx="210" cy="6" r="0.7"/>
+    <circle cx="310" cy="14" r="0.7"/>
+    <circle cx="366" cy="8" r="0.7"/>
+  </g>
+  <g opacity="0.6">
+    <circle class="particle" cx="60" cy="13" r="0.6" style="animation-delay:0s"/>
+    <circle class="particle" cx="140" cy="15" r="0.6" style="animation-delay:1.5s"/>
+    <circle class="particle" cx="220" cy="15" r="0.6" style="animation-delay:3s"/>
+    <circle class="particle" cx="300" cy="13" r="0.6" style="animation-delay:4.5s"/>
+    <circle class="particle" cx="340" cy="11" r="0.6" style="animation-delay:6s"/>
+  </g>
+  <g>
+    <rect class="bg-shape" x="18" y="4" width="60" height="6" rx="3"/>
+    <rect class="bg-shape" x="302" y="10" width="60" height="5" rx="2.5"/>
+  </g>
+</g>
+
+<g class="text" aria-label="Show some ❤️ by starring some of the repositories!">
+  <!-- Tekst wyśrodkowany wizualnie w 400px -->
+  <g transform="translate(60, 13)">
+    <!-- Wzmocnione, pulsyjące halo za sercem (trzy warstwy dla głębi) -->
+    <circle class="heart-glow" cx="64" cy="-0.5" r="5"/>
+    <circle class="heart-glow second" cx="64" cy="-0.5" r="7"/>
+    <circle class="heart-glow third" cx="64" cy="-0.5" r="9"/>
+
+    <!-- Wzmocnione, rozchodzące się pierścienie (3 w równych odstępach) -->
+    <g>
+      <circle class="heart-ring" cx="64" cy="-0.5" r="3">
+        <animate attributeName="r" values="3;12;18" dur="3.6s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.45;0.0" dur="3.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle class="heart-ring" cx="64" cy="-0.5" r="3">
+        <animate attributeName="r" values="3;12;18" dur="3.6s" begin="1.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.45;0.0" dur="3.6s" begin="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle class="heart-ring" cx="64" cy="-0.5" r="3">
+        <animate attributeName="r" values="3;12;18" dur="3.6s" begin="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.45;0.0" dur="3.6s" begin="2.4s" repeatCount="indefinite"/>
+      </circle>
     </g>
 
-    <g class="text" aria-label="Show some ❤️ by starring some of the repositories!">
-        <!-- Centered ultra-thin text line -->
-        <g transform="translate(20, 13)">
-            <!-- "Show some ❤️ by starring some of the repositories!" -->
-            <text x="0" y="0" class="letter">S</text>
-            <text x="7" y="0" class="letter">h</text>
-            <text x="13" y="0" class="letter">o</text>
-            <text x="19" y="0" class="letter">w</text>
-            <text x="27" y="0" class="letter"> </text>
-            <text x="30" y="0" class="letter">s</text>
-            <text x="36" y="0" class="letter">o</text>
-            <text x="42" y="0" class="letter">m</text>
-            <text x="51" y="0" class="letter">e</text>
-            <text x="57" y="0" class="letter"> </text>
-            <text x="60" y="0" class="letter">❤</text>
-            <text x="68" y="0" class="letter">️</text>
-            <text x="73" y="0" class="letter"> </text>
-            <text x="76" y="0" class="letter">b</text>
-            <text x="82" y="0" class="letter">y</text>
-            <text x="88" y="0" class="letter"> </text>
-            <text x="91" y="0" class="letter">s</text>
-            <text x="97" y="0" class="letter">t</text>
-            <text x="102" y="0" class="letter">a</text>
-            <text x="108" y="0" class="letter">r</text>
-            <text x="113" y="0" class="letter">r</text>
-            <text x="118" y="0" class="letter">i</text>
-            <text x="121" y="0" class="letter">n</text>
-            <text x="127" y="0" class="letter">g</text>
-            <text x="133" y="0" class="letter"> </text>
-            <text x="136" y="0" class="letter">s</text>
-            <text x="142" y="0" class="letter">o</text>
-            <text x="148" y="0" class="letter">m</text>
-            <text x="157" y="0" class="letter">e</text>
-            <text x="163" y="0" class="letter"> </text>
-            <text x="166" y="0" class="letter">o</text>
-            <text x="172" y="0" class="letter">f</text>
-            <text x="176" y="0" class="letter"> </text>
-            <text x="179" y="0" class="letter">t</text>
-            <text x="184" y="0" class="letter">h</text>
-            <text x="190" y="0" class="letter">e</text>
-            <text x="196" y="0" class="letter"> </text>
-            <text x="199" y="0" class="letter">r</text>
-            <text x="204" y="0" class="letter">e</text>
-            <text x="210" y="0" class="letter">p</text>
-            <text x="216" y="0" class="letter">o</text>
-            <text x="222" y="0" class="letter">s</text>
-            <text x="228" y="0" class="letter">i</text>
-            <text x="231" y="0" class="letter">t</text>
-            <text x="236" y="0" class="letter">o</text>
-            <text x="242" y="0" class="letter">r</text>
-            <text x="247" y="0" class="letter">i</text>
-            <text x="250" y="0" class="letter">e</text>
-            <text x="256" y="0" class="letter">s</text>
-            <text x="262" y="0" class="letter">!</text>
-        </g>
-    </g>
+    <!-- Napis: "Show some ❤️ by starring some of the repositories!" -->
+    <text x="0" y="0" class="letter">S</text>
+    <text x="7" y="0" class="letter">h</text>
+    <text x="13" y="0" class="letter">o</text>
+    <text x="19" y="0" class="letter">w</text>
+    <text x="27" y="0" class="letter"> </text>
+    <text x="30" y="0" class="letter">s</text>
+    <text x="36" y="0" class="letter">o</text>
+    <text x="42" y="0" class="letter">m</text>
+    <text x="51" y="0" class="letter">e</text>
+    <text x="57" y="0" class="letter"> </text>
+    <text x="60" y="0" class="heart-letter">❤</text>
+    <text x="68" y="0" class="letter">️</text>
+    <text x="73" y="0" class="letter"> </text>
+    <text x="76" y="0" class="letter">b</text>
+    <text x="82" y="0" class="letter">y</text>
+    <text x="88" y="0" class="letter"> </text>
+    <text x="91" y="0" class="letter">s</text>
+    <text x="97" y="0" class="letter">t</text>
+    <text x="102" y="0" class="letter">a</text>
+    <text x="108" y="0" class="letter">r</text>
+    <text x="113" y="0" class="letter">r</text>
+    <text x="118" y="0" class="letter">i</text>
+    <text x="121" y="0" class="letter">n</text>
+    <text x="127" y="0" class="letter">g</text>
+    <text x="133" y="0" class="letter"> </text>
+    <text x="136" y="0" class="letter">s</text>
+    <text x="142" y="0" class="letter">o</text>
+    <text x="148" y="0" class="letter">m</text>
+    <text x="157" y="0" class="letter">e</text>
+    <text x="163" y="0" class="letter"> </text>
+    <text x="166" y="0" class="letter">o</text>
+    <text x="172" y="0" class="letter">f</text>
+    <text x="176" y="0" class="letter"> </text>
+    <text x="179" y="0" class="letter">t</text>
+    <text x="184" y="0" class="letter">h</text>
+    <text x="190" y="0" class="letter">e</text>
+    <text x="196" y="0" class="letter"> </text>
+    <text x="199" y="0" class="letter">r</text>
+    <text x="204" y="0" class="letter">e</text>
+    <text x="210" y="0" class="letter">p</text>
+    <text x="216" y="0" class="letter">o</text>
+    <text x="222" y="0" class="letter">s</text>
+    <text x="228" y="0" class="letter">i</text>
+    <text x="231" y="0" class="letter">t</text>
+    <text x="236" y="0" class="letter">o</text>
+    <text x="242" y="0" class="letter">r</text>
+    <text x="247" y="0" class="letter">i</text>
+    <text x="250" y="0" class="letter">e</text>
+    <text x="256" y="0" class="letter">s</text>
+    <text x="262" y="0" class="letter">!</text>
+  </g>
+</g>
 </svg>
