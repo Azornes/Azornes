@@ -1,10 +1,10 @@
-<svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
     <style>
         .text {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-weight: 300;
-            font-size: 16px;
-            letter-spacing: 0.5px;
+            font-size: 10px;
+            letter-spacing: 0.4px;
             fill: url(#gradient);
             filter: url(#glow);
         }
@@ -61,7 +61,7 @@
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-2px); }
+            50% { transform: translateY(-1px); }
         }
 
         .gradient-shift {
@@ -77,13 +77,13 @@
 
         .bg-line {
             stroke: url(#bgGradient);
-            stroke-width: 0.8;
-            opacity: 0.5;
+            stroke-width: 0.6;
+            opacity: 0.4;
             animation: linePulse 6s ease-in-out infinite;
         }
         @keyframes linePulse {
-            0%, 100% { opacity: 0.25; }
-            50% { opacity: 0.6; }
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
         }
 
         .bg-dots circle {
@@ -97,15 +97,16 @@
 
         @keyframes dotFloat {
             0%, 100% { transform: translateY(0px); opacity: 0.15; }
-            50% { transform: translateY(-3px); opacity: 0.4; }
+            50% { transform: translateY(-1px); opacity: 0.35; }
         }
 
         .particle {
             animation: float-particle 8s linear infinite;
+            fill: #f9a8d4;
         }
         @keyframes float-particle {
             0% {
-                transform: translateY(50px) translateX(0);
+                transform: translateY(15px) translateX(0);
                 opacity: 0;
             }
             10% {
@@ -115,7 +116,7 @@
                 opacity: 0.5;
             }
             100% {
-                transform: translateY(-5px) translateX(20px);
+                transform: translateY(-3px) translateX(10px);
                 opacity: 0;
             }
         }
@@ -125,10 +126,10 @@
         }
         @keyframes wave-motion {
             0%, 100% {
-                d: path("M0,32 Q100,28 200,32 T400,32");
+                d: path("M0,10 Q100,8 200,10 T400,10");
             }
             50% {
-                d: path("M0,32 Q100,36 200,32 T400,32");
+                d: path("M0,10 Q100,12 200,10 T400,10");
             }
         }
 
@@ -143,32 +144,22 @@
 
         .bg-shape {
             fill: url(#shapeGradient);
-            opacity: 0.12;
+            opacity: 0.1;
             animation: subtleMorph 10s ease-in-out infinite;
         }
         .bg-shape:nth-child(1) { animation-delay: 0s; }
         .bg-shape:nth-child(2) { animation-delay: 2s; }
 
         @keyframes subtleMorph {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.08; }
-            50% { transform: scale(1.05) rotate(5deg); opacity: 0.18; }
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.06; }
+            50% { transform: scale(1.03) rotate(3deg); opacity: 0.14; }
         }
-
-        .frame {
-            stroke: url(#gradient);
-            stroke-width: 0.5;
-            opacity: 0.4;
-            rx: 6;
-            ry: 6;
-        }
-
-        .particle { fill: #f9a8d4; }
 
         .text-glow-layer {
             fill: none;
             stroke: url(#gradient);
-            stroke-width: 0.4;
-            opacity: 0.35;
+            stroke-width: 0.3;
+            opacity: 0.3;
             filter: url(#glow-light);
         }
     </style>
@@ -187,105 +178,103 @@
             <stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.1"/>
         </linearGradient>
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="blur">
-                <animate attributeName="stdDeviation" values="1.4;2.2;1.4" dur="5s" repeatCount="indefinite"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur">
+                <animate attributeName="stdDeviation" values="1;1.6;1" dur="5s" repeatCount="indefinite"/>
             </feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="0.1 0 0 0 0  0 0.2 0 0 0  0 0 0.4 0 0  0 0 0 12 -4" result="glow"/>
+            <feColorMatrix in="blur" mode="matrix" values="0.1 0 0 0 0  0 0.2 0 0 0  0 0 0.4 0 0  0 0 0 10 -4" result="glow"/>
             <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
         </filter>
         <filter id="glow-light" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur"/>
-            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.8  0 0 0 0 1  0 0 0 8 -6"/>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" result="blur"/>
+            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.8  0 0 0 0 1  0 0 0 6 -5"/>
         </filter>
     </defs>
 
     <g class="background">
-        <rect x="2" y="2" width="396" height="56" rx="8" ry="8" fill="#020617" opacity="0.9"/>
-        <rect x="3.5" y="3.5" width="393" height="53" class="frame" fill="none"/>
-
-        <path class="wave" d="M0,32 Q100,28 200,32 T400,32" stroke="url(#shapeGradient)" stroke-width="0.7" fill="none" opacity="0.35"/>
+        <!-- Transparent background: no solid rect, no frame -->
+        <path class="wave" d="M0,10 Q100,8 200,10 T400,10" stroke="url(#shapeGradient)" stroke-width="0.6" fill="none" opacity="0.35"/>
 
         <g class="bg-line">
-            <path d="M20 18 H380"/>
-            <path d="M20 42 H380" opacity="0.6"/>
+            <path d="M16 6 H384"/>
+            <path d="M16 14 H384" opacity="0.6"/>
         </g>
 
         <g class="bg-dots" fill="#38bdf8">
-            <circle cx="40" cy="16" r="0.9"/>
-            <circle cx="90" cy="44" r="0.9"/>
-            <circle cx="210" cy="18" r="0.9"/>
-            <circle cx="310" cy="44" r="0.9"/>
-            <circle cx="360" cy="20" r="0.9"/>
+            <circle cx="34" cy="6" r="0.7"/>
+            <circle cx="90" cy="14" r="0.7"/>
+            <circle cx="210" cy="6" r="0.7"/>
+            <circle cx="310" cy="14" r="0.7"/>
+            <circle cx="366" cy="8" r="0.7"/>
         </g>
 
-        <g fill="#f9a8d4" opacity="0.6">
-            <circle class="particle" cx="60" cy="40" r="0.8" style="animation-delay:0s"/>
-            <circle class="particle" cx="140" cy="44" r="0.8" style="animation-delay:1.5s"/>
-            <circle class="particle" cx="220" cy="46" r="0.8" style="animation-delay:3s"/>
-            <circle class="particle" cx="300" cy="42" r="0.8" style="animation-delay:4.5s"/>
-            <circle class="particle" cx="340" cy="38" r="0.8" style="animation-delay:6s"/>
+        <g opacity="0.6">
+            <circle class="particle" cx="60" cy="13" r="0.6" style="animation-delay:0s"/>
+            <circle class="particle" cx="140" cy="15" r="0.6" style="animation-delay:1.5s"/>
+            <circle class="particle" cx="220" cy="15" r="0.6" style="animation-delay:3s"/>
+            <circle class="particle" cx="300" cy="13" r="0.6" style="animation-delay:4.5s"/>
+            <circle class="particle" cx="340" cy="11" r="0.6" style="animation-delay:6s"/>
         </g>
 
         <g>
-            <rect class="bg-shape" x="18" y="10" width="80" height="14" rx="7"/>
-            <rect class="bg-shape" x="302" y="36" width="80" height="12" rx="6"/>
+            <rect class="bg-shape" x="18" y="4" width="60" height="6" rx="3"/>
+            <rect class="bg-shape" x="302" y="10" width="60" height="5" rx="2.5"/>
         </g>
     </g>
 
     <g class="text" aria-label="Show some ❤️ by starring some of the repositories!">
         <!-- Centered ultra-thin text line -->
-        <g transform="translate(20, 35)">
+        <g transform="translate(20, 13)">
             <!-- "Show some ❤️ by starring some of the repositories!" -->
             <text x="0" y="0" class="letter">S</text>
-            <text x="8" y="0" class="letter">h</text>
-            <text x="16" y="0" class="letter">o</text>
-            <text x="24" y="0" class="letter">w</text>
-            <text x="34" y="0" class="letter"> </text>
-            <text x="38" y="0" class="letter">s</text>
-            <text x="46" y="0" class="letter">o</text>
-            <text x="54" y="0" class="letter">m</text>
-            <text x="66" y="0" class="letter">e</text>
-            <text x="74" y="0" class="letter"> </text>
-            <text x="78" y="0" class="letter">❤</text>
-            <text x="88" y="0" class="letter">️</text>
-            <text x="96" y="0" class="letter"> </text>
-            <text x="100" y="0" class="letter">b</text>
-            <text x="108" y="0" class="letter">y</text>
-            <text x="116" y="0" class="letter"> </text>
-            <text x="120" y="0" class="letter">s</text>
-            <text x="128" y="0" class="letter">t</text>
-            <text x="134" y="0" class="letter">a</text>
-            <text x="142" y="0" class="letter">r</text>
-            <text x="148" y="0" class="letter">r</text>
-            <text x="154" y="0" class="letter">i</text>
-            <text x="158" y="0" class="letter">n</text>
-            <text x="166" y="0" class="letter">g</text>
-            <text x="174" y="0" class="letter"> </text>
-            <text x="178" y="0" class="letter">s</text>
-            <text x="186" y="0" class="letter">o</text>
-            <text x="194" y="0" class="letter">m</text>
-            <text x="206" y="0" class="letter">e</text>
-            <text x="214" y="0" class="letter"> </text>
-            <text x="218" y="0" class="letter">o</text>
-            <text x="226" y="0" class="letter">f</text>
-            <text x="232" y="0" class="letter"> </text>
-            <text x="236" y="0" class="letter">t</text>
-            <text x="242" y="0" class="letter">h</text>
+            <text x="7" y="0" class="letter">h</text>
+            <text x="13" y="0" class="letter">o</text>
+            <text x="19" y="0" class="letter">w</text>
+            <text x="27" y="0" class="letter"> </text>
+            <text x="30" y="0" class="letter">s</text>
+            <text x="36" y="0" class="letter">o</text>
+            <text x="42" y="0" class="letter">m</text>
+            <text x="51" y="0" class="letter">e</text>
+            <text x="57" y="0" class="letter"> </text>
+            <text x="60" y="0" class="letter">❤</text>
+            <text x="68" y="0" class="letter">️</text>
+            <text x="73" y="0" class="letter"> </text>
+            <text x="76" y="0" class="letter">b</text>
+            <text x="82" y="0" class="letter">y</text>
+            <text x="88" y="0" class="letter"> </text>
+            <text x="91" y="0" class="letter">s</text>
+            <text x="97" y="0" class="letter">t</text>
+            <text x="102" y="0" class="letter">a</text>
+            <text x="108" y="0" class="letter">r</text>
+            <text x="113" y="0" class="letter">r</text>
+            <text x="118" y="0" class="letter">i</text>
+            <text x="121" y="0" class="letter">n</text>
+            <text x="127" y="0" class="letter">g</text>
+            <text x="133" y="0" class="letter"> </text>
+            <text x="136" y="0" class="letter">s</text>
+            <text x="142" y="0" class="letter">o</text>
+            <text x="148" y="0" class="letter">m</text>
+            <text x="157" y="0" class="letter">e</text>
+            <text x="163" y="0" class="letter"> </text>
+            <text x="166" y="0" class="letter">o</text>
+            <text x="172" y="0" class="letter">f</text>
+            <text x="176" y="0" class="letter"> </text>
+            <text x="179" y="0" class="letter">t</text>
+            <text x="184" y="0" class="letter">h</text>
+            <text x="190" y="0" class="letter">e</text>
+            <text x="196" y="0" class="letter"> </text>
+            <text x="199" y="0" class="letter">r</text>
+            <text x="204" y="0" class="letter">e</text>
+            <text x="210" y="0" class="letter">p</text>
+            <text x="216" y="0" class="letter">o</text>
+            <text x="222" y="0" class="letter">s</text>
+            <text x="228" y="0" class="letter">i</text>
+            <text x="231" y="0" class="letter">t</text>
+            <text x="236" y="0" class="letter">o</text>
+            <text x="242" y="0" class="letter">r</text>
+            <text x="247" y="0" class="letter">i</text>
             <text x="250" y="0" class="letter">e</text>
-            <text x="258" y="0" class="letter"> </text>
-            <text x="262" y="0" class="letter">r</text>
-            <text x="268" y="0" class="letter">e</text>
-            <text x="276" y="0" class="letter">p</text>
-            <text x="284" y="0" class="letter">o</text>
-            <text x="292" y="0" class="letter">s</text>
-            <text x="300" y="0" class="letter">i</text>
-            <text x="304" y="0" class="letter">t</text>
-            <text x="310" y="0" class="letter">o</text>
-            <text x="318" y="0" class="letter">r</text>
-            <text x="324" y="0" class="letter">i</text>
-            <text x="328" y="0" class="letter">e</text>
-            <text x="336" y="0" class="letter">s</text>
-            <text x="344" y="0" class="letter">!</text>
+            <text x="256" y="0" class="letter">s</text>
+            <text x="262" y="0" class="letter">!</text>
         </g>
     </g>
 </svg>
