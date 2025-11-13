@@ -1,59 +1,159 @@
 <svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .text {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 700;
-      font-size: 52px;
-      fill: url(#gradient);
-      filter: url(#glow);
-    }
-    .letter {
-      animation: float 6s ease-in-out infinite;
-    }
-    .letter:nth-child(1) { animation-delay: 0s; }
-    .letter:nth-child(2) { animation-delay: 0.1s; }
-    .letter:nth-child(3) { animation-delay: 0.2s; }
-    .letter:nth-child(4) { animation-delay: 0.3s; }
-    .letter:nth-child(5) { animation-delay: 0.4s; }
-    .letter:nth-child(6) { animation-delay: 0.5s; }
-    .letter:nth-child(7) { animation-delay: 0.6s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) scale(1); }
-      33% { transform: translateY(-3px) scale(1.02); }
-      66% { transform: translateY(2px) scale(0.98); }
-    }
-    .gradient-shift {
-      animation: gradientShift 8s ease-in-out infinite;
-    }
-    @keyframes gradientShift {
-      0% { stop-color: #ff0055; }
-      25% { stop-color: #ff0080; }
-      50% { stop-color: #d400ff; }
-      75% { stop-color: #9b00ff; }
-      100% { stop-color: #ff0055; }
-    }
-  </style>
-  <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" class="gradient-shift" stop-color="#ff0055"/>
-      <stop offset="50%" class="gradient-shift" stop-color="#ff0080"/>
-      <stop offset="100%" class="gradient-shift" stop-color="#d400ff"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur">
-        <animate attributeName="stdDeviation" values="3;6;3" dur="4s" repeatCount="indefinite"/>
-      </feGaussianBlur>
-      <feColorMatrix in="blur" mode="matrix" values="0.2 0 0 0 0  0 0.1 0 0 0  0 0 0.3 0 0  0 0 0 18 -3" result="glow"/>
-      <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
-    </filter>
-  </defs>
-  <g class="text">
-    <text x="110" y="50" text-anchor="middle" class="letter">A</text>
-    <text x="140" y="50" text-anchor="middle" class="letter">z</text>
-    <text x="165" y="50" text-anchor="middle" class="letter">o</text>
-    <text x="190" y="50" text-anchor="middle" class="letter">r</text>
-    <text x="215" y="50" text-anchor="middle" class="letter">n</text>
-    <text x="240" y="50" text-anchor="middle" class="letter">e</text>
-    <text x="265" y="50" text-anchor="middle" class="letter">s</text>
-  </g>
+    <style>
+        .text {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 700;
+            font-size: 52px;
+            fill: url(#gradient);
+            filter: url(#glow);
+        }
+        .letter {
+            animation: float 6s ease-in-out infinite;
+        }
+        .letter:nth-child(1) { animation-delay: 0s; }
+        .letter:nth-child(2) { animation-delay: 0.1s; }
+        .letter:nth-child(3) { animation-delay: 0.2s; }
+        .letter:nth-child(4) { animation-delay: 0.3s; }
+        .letter:nth-child(5) { animation-delay: 0.4s; }
+        .letter:nth-child(6) { animation-delay: 0.5s; }
+        .letter:nth-child(7) { animation-delay: 0.6s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            33% { transform: translateY(-3px) scale(1.02); }
+            66% { transform: translateY(2px) scale(0.98); }
+        }
+        .gradient-shift {
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        @keyframes gradientShift {
+            0% { stop-color: #ff0055; }
+            25% { stop-color: #ff0080; }
+            50% { stop-color: #d400ff; }
+            75% { stop-color: #9b00ff; }
+            100% { stop-color: #ff0055; }
+        }
+        .bg-circle {
+            fill: url(#bgGradient);
+            opacity: 0.15;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        .bg-circle:nth-child(2) { animation-delay: 0.5s; }
+        .bg-circle:nth-child(3) { animation-delay: 1s; }
+        .bg-circle:nth-child(4) { animation-delay: 1.5s; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.3); opacity: 0.05; }
+        }
+        .bg-gradient-shift {
+            animation: bgGradientShift 6s ease-in-out infinite;
+        }
+        @keyframes bgGradientShift {
+            0% { stop-color: #1a0033; }
+            50% { stop-color: #330066; }
+            100% { stop-color: #1a0033; }
+        }
+        .bg-shape {
+            opacity: 0.3;
+            animation: morph 8s ease-in-out infinite;
+        }
+        .bg-shape:nth-child(1) { animation-delay: 0s; }
+        .bg-shape:nth-child(2) { animation-delay: 1s; }
+        .bg-shape:nth-child(3) { animation-delay: 2s; }
+        .bg-shape:nth-child(4) { animation-delay: 3s; }
+        .bg-shape:nth-child(5) { animation-delay: 4s; }
+        @keyframes morph {
+            0%, 100% { 
+                transform: rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: rotate(90deg) scale(1.2);
+                opacity: 0.5;
+            }
+            50% { 
+                transform: rotate(180deg) scale(0.8);
+                opacity: 0.2;
+            }
+            75% { 
+                transform: rotate(270deg) scale(1.1);
+                opacity: 0.4;
+            }
+        }
+        .particle {
+            animation: float-particle 10s linear infinite;
+        }
+        @keyframes float-particle {
+            0% {
+                transform: translateY(60px) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10px) translateX(20px);
+                opacity: 0;
+            }
+        }
+        .wave {
+            animation: wave-motion 6s ease-in-out infinite;
+        }
+        @keyframes wave-motion {
+            0%, 100% {
+                d: path("M0,30 Q100,20 200,30 T400,30");
+            }
+            50% {
+                d: path("M0,30 Q100,40 200,30 T400,30");
+            }
+        }
+    </style>
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" class="gradient-shift" stop-color="#ff0055"/>
+            <stop offset="50%" class="gradient-shift" stop-color="#ff0080"/>
+            <stop offset="100%" class="gradient-shift" stop-color="#d400ff"/>
+        </linearGradient>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" class="bg-gradient-shift" stop-color="#1a0033"/>
+            <stop offset="100%" stop-color="#000000"/>
+        </linearGradient>
+        <linearGradient id="shapeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff0080" opacity="0.5"/>
+            <stop offset="100%" stop-color="#d400ff" opacity="0.2"/>
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur">
+                <animate attributeName="stdDeviation" values="3;6;3" dur="4s" repeatCount="indefinite"/>
+            </feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="0.2 0 0 0 0  0 0.1 0 0 0  0 0 0.3 0 0  0 0 0 18 -3" result="glow"/>
+            <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+        </filter>
+    </defs>
+    <g class="background">
+        <path class="wave" d="M0,30 Q100,20 200,30 T400,30" stroke="url(#shapeGradient)" stroke-width="2" fill="none" opacity="0.4"/>
+        <rect class="bg-shape" x="20" y="10" width="30" height="30" rx="5" fill="url(#shapeGradient)" transform="rotate(45 35 25)"/>
+        <polygon class="bg-shape" points="100,15 115,35 85,35" fill="url(#shapeGradient)"/>
+        <circle class="bg-shape" cx="200" cy="30" r="18" fill="url(#shapeGradient)"/>
+        <polygon class="bg-shape" points="280,20 295,40 265,40 275,25" fill="url(#shapeGradient)"/>
+        <rect class="bg-shape" x="340" y="15" width="25" height="25" rx="12" fill="url(#shapeGradient)"/>
+        <circle class="particle" cx="60" cy="30" r="2" fill="#ff0080" opacity="0.6"/>
+        <circle class="particle" cx="160" cy="30" r="1.5" fill="#d400ff" opacity="0.6" style="animation-delay: 2s"/>
+        <circle class="particle" cx="260" cy="30" r="2.5" fill="#ff0080" opacity="0.6" style="animation-delay: 4s"/>
+        <circle class="particle" cx="340" cy="30" r="1.8" fill="#d400ff" opacity="0.6" style="animation-delay: 6s"/>
+        <circle class="particle" cx="120" cy="30" r="1.2" fill="#ff0080" opacity="0.6" style="animation-delay: 8s"/>
+        <circle class="particle" cx="220" cy="30" r="2" fill="#d400ff" opacity="0.6" style="animation-delay: 1s"/>
+        <circle class="particle" cx="300" cy="30" r="1.5" fill="#ff0080" opacity="0.6" style="animation-delay: 3s"/>
+    </g>
+    <g class="text">
+        <text x="110" y="50" text-anchor="middle" class="letter">A</text>
+        <text x="140" y="50" text-anchor="middle" class="letter">z</text>
+        <text x="165" y="50" text-anchor="middle" class="letter">o</text>
+        <text x="190" y="50" text-anchor="middle" class="letter">r</text>
+        <text x="215" y="50" text-anchor="middle" class="letter">n</text>
+        <text x="240" y="50" text-anchor="middle" class="letter">e</text>
+        <text x="265" y="50" text-anchor="middle" class="letter">s</text>
+    </g>
 </svg>
