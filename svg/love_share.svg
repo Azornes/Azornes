@@ -1,0 +1,291 @@
+<svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .text {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            fill: url(#gradient);
+            filter: url(#glow);
+        }
+        .letter {
+            animation: float 5s ease-in-out infinite;
+        }
+        .letter:nth-child(1) { animation-delay: 0s; }
+        .letter:nth-child(2) { animation-delay: 0.05s; }
+        .letter:nth-child(3) { animation-delay: 0.1s; }
+        .letter:nth-child(4) { animation-delay: 0.15s; }
+        .letter:nth-child(5) { animation-delay: 0.2s; }
+        .letter:nth-child(6) { animation-delay: 0.25s; }
+        .letter:nth-child(7) { animation-delay: 0.3s; }
+        .letter:nth-child(8) { animation-delay: 0.35s; }
+        .letter:nth-child(9) { animation-delay: 0.4s; }
+        .letter:nth-child(10) { animation-delay: 0.45s; }
+        .letter:nth-child(11) { animation-delay: 0.5s; }
+        .letter:nth-child(12) { animation-delay: 0.55s; }
+        .letter:nth-child(13) { animation-delay: 0.6s; }
+        .letter:nth-child(14) { animation-delay: 0.65s; }
+        .letter:nth-child(15) { animation-delay: 0.7s; }
+        .letter:nth-child(16) { animation-delay: 0.75s; }
+        .letter:nth-child(17) { animation-delay: 0.8s; }
+        .letter:nth-child(18) { animation-delay: 0.85s; }
+        .letter:nth-child(19) { animation-delay: 0.9s; }
+        .letter:nth-child(20) { animation-delay: 0.95s; }
+        .letter:nth-child(21) { animation-delay: 1s; }
+        .letter:nth-child(22) { animation-delay: 1.05s; }
+        .letter:nth-child(23) { animation-delay: 1.1s; }
+        .letter:nth-child(24) { animation-delay: 1.15s; }
+        .letter:nth-child(25) { animation-delay: 1.2s; }
+        .letter:nth-child(26) { animation-delay: 1.25s; }
+        .letter:nth-child(27) { animation-delay: 1.3s; }
+        .letter:nth-child(28) { animation-delay: 1.35s; }
+        .letter:nth-child(29) { animation-delay: 1.4s; }
+        .letter:nth-child(30) { animation-delay: 1.45s; }
+        .letter:nth-child(31) { animation-delay: 1.5s; }
+        .letter:nth-child(32) { animation-delay: 1.55s; }
+        .letter:nth-child(33) { animation-delay: 1.6s; }
+        .letter:nth-child(34) { animation-delay: 1.65s; }
+        .letter:nth-child(35) { animation-delay: 1.7s; }
+        .letter:nth-child(36) { animation-delay: 1.75s; }
+        .letter:nth-child(37) { animation-delay: 1.8s; }
+        .letter:nth-child(38) { animation-delay: 1.85s; }
+        .letter:nth-child(39) { animation-delay: 1.9s; }
+        .letter:nth-child(40) { animation-delay: 1.95s; }
+        .letter:nth-child(41) { animation-delay: 2.0s; }
+        .letter:nth-child(42) { animation-delay: 2.05s; }
+        .letter:nth-child(43) { animation-delay: 2.1s; }
+        .letter:nth-child(44) { animation-delay: 2.15s; }
+        .letter:nth-child(45) { animation-delay: 2.2s; }
+        .letter:nth-child(46) { animation-delay: 2.25s; }
+        .letter:nth-child(47) { animation-delay: 2.3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-2px); }
+        }
+
+        .gradient-shift {
+            animation: gradientShift 10s ease-in-out infinite;
+        }
+        @keyframes gradientShift {
+            0% { stop-color: #7dd3fc; }
+            25% { stop-color: #a5b4fc; }
+            50% { stop-color: #f9a8d4; }
+            75% { stop-color: #fed7aa; }
+            100% { stop-color: #7dd3fc; }
+        }
+
+        .bg-line {
+            stroke: url(#bgGradient);
+            stroke-width: 0.8;
+            opacity: 0.5;
+            animation: linePulse 6s ease-in-out infinite;
+        }
+        @keyframes linePulse {
+            0%, 100% { opacity: 0.25; }
+            50% { opacity: 0.6; }
+        }
+
+        .bg-dots circle {
+            animation: dotFloat 7s ease-in-out infinite;
+        }
+        .bg-dots circle:nth-child(1) { animation-delay: 0s; }
+        .bg-dots circle:nth-child(2) { animation-delay: 1s; }
+        .bg-dots circle:nth-child(3) { animation-delay: 2s; }
+        .bg-dots circle:nth-child(4) { animation-delay: 3s; }
+        .bg-dots circle:nth-child(5) { animation-delay: 4s; }
+
+        @keyframes dotFloat {
+            0%, 100% { transform: translateY(0px); opacity: 0.15; }
+            50% { transform: translateY(-3px); opacity: 0.4; }
+        }
+
+        .particle {
+            animation: float-particle 8s linear infinite;
+        }
+        @keyframes float-particle {
+            0% {
+                transform: translateY(50px) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-5px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        .wave {
+            animation: wave-motion 7s ease-in-out infinite;
+        }
+        @keyframes wave-motion {
+            0%, 100% {
+                d: path("M0,32 Q100,28 200,32 T400,32");
+            }
+            50% {
+                d: path("M0,32 Q100,36 200,32 T400,32");
+            }
+        }
+
+        .bg-gradient-shift {
+            animation: bgGradientShift 9s ease-in-out infinite;
+        }
+        @keyframes bgGradientShift {
+            0% { stop-color: #020617; }
+            50% { stop-color: #020617; }
+            100% { stop-color: #020617; }
+        }
+
+        .bg-shape {
+            fill: url(#shapeGradient);
+            opacity: 0.12;
+            animation: subtleMorph 10s ease-in-out infinite;
+        }
+        .bg-shape:nth-child(1) { animation-delay: 0s; }
+        .bg-shape:nth-child(2) { animation-delay: 2s; }
+
+        @keyframes subtleMorph {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.08; }
+            50% { transform: scale(1.05) rotate(5deg); opacity: 0.18; }
+        }
+
+        .frame {
+            stroke: url(#gradient);
+            stroke-width: 0.5;
+            opacity: 0.4;
+            rx: 6;
+            ry: 6;
+        }
+
+        .particle { fill: #f9a8d4; }
+
+        .text-glow-layer {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 0.4;
+            opacity: 0.35;
+            filter: url(#glow-light);
+        }
+    </style>
+    <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" class="gradient-shift" stop-color="#7dd3fc"/>
+            <stop offset="50%" class="gradient-shift" stop-color="#a5b4fc"/>
+            <stop offset="100%" class="gradient-shift" stop-color="#f9a8d4"/>
+        </linearGradient>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" class="bg-gradient-shift" stop-color="#020617"/>
+            <stop offset="100%" stop-color="#020617"/>
+        </linearGradient>
+        <linearGradient id="shapeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#f9a8d4" stop-opacity="0.1"/>
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="blur">
+                <animate attributeName="stdDeviation" values="1.4;2.2;1.4" dur="5s" repeatCount="indefinite"/>
+            </feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="0.1 0 0 0 0  0 0.2 0 0 0  0 0 0.4 0 0  0 0 0 12 -4" result="glow"/>
+            <feBlend in="SourceGraphic" in2="glow" mode="screen"/>
+        </filter>
+        <filter id="glow-light" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur"/>
+            <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.8  0 0 0 0 1  0 0 0 8 -6"/>
+        </filter>
+    </defs>
+
+    <g class="background">
+        <rect x="2" y="2" width="396" height="56" rx="8" ry="8" fill="#020617" opacity="0.9"/>
+        <rect x="3.5" y="3.5" width="393" height="53" class="frame" fill="none"/>
+
+        <path class="wave" d="M0,32 Q100,28 200,32 T400,32" stroke="url(#shapeGradient)" stroke-width="0.7" fill="none" opacity="0.35"/>
+
+        <g class="bg-line">
+            <path d="M20 18 H380"/>
+            <path d="M20 42 H380" opacity="0.6"/>
+        </g>
+
+        <g class="bg-dots" fill="#38bdf8">
+            <circle cx="40" cy="16" r="0.9"/>
+            <circle cx="90" cy="44" r="0.9"/>
+            <circle cx="210" cy="18" r="0.9"/>
+            <circle cx="310" cy="44" r="0.9"/>
+            <circle cx="360" cy="20" r="0.9"/>
+        </g>
+
+        <g fill="#f9a8d4" opacity="0.6">
+            <circle class="particle" cx="60" cy="40" r="0.8" style="animation-delay:0s"/>
+            <circle class="particle" cx="140" cy="44" r="0.8" style="animation-delay:1.5s"/>
+            <circle class="particle" cx="220" cy="46" r="0.8" style="animation-delay:3s"/>
+            <circle class="particle" cx="300" cy="42" r="0.8" style="animation-delay:4.5s"/>
+            <circle class="particle" cx="340" cy="38" r="0.8" style="animation-delay:6s"/>
+        </g>
+
+        <g>
+            <rect class="bg-shape" x="18" y="10" width="80" height="14" rx="7"/>
+            <rect class="bg-shape" x="302" y="36" width="80" height="12" rx="6"/>
+        </g>
+    </g>
+
+    <g class="text" aria-label="Show some ❤️ by starring some of the repositories!">
+        <!-- Centered ultra-thin text line -->
+        <g transform="translate(20, 35)">
+            <!-- "Show some ❤️ by starring some of the repositories!" -->
+            <text x="0" y="0" class="letter">S</text>
+            <text x="8" y="0" class="letter">h</text>
+            <text x="16" y="0" class="letter">o</text>
+            <text x="24" y="0" class="letter">w</text>
+            <text x="34" y="0" class="letter"> </text>
+            <text x="38" y="0" class="letter">s</text>
+            <text x="46" y="0" class="letter">o</text>
+            <text x="54" y="0" class="letter">m</text>
+            <text x="66" y="0" class="letter">e</text>
+            <text x="74" y="0" class="letter"> </text>
+            <text x="78" y="0" class="letter">❤</text>
+            <text x="88" y="0" class="letter">️</text>
+            <text x="96" y="0" class="letter"> </text>
+            <text x="100" y="0" class="letter">b</text>
+            <text x="108" y="0" class="letter">y</text>
+            <text x="116" y="0" class="letter"> </text>
+            <text x="120" y="0" class="letter">s</text>
+            <text x="128" y="0" class="letter">t</text>
+            <text x="134" y="0" class="letter">a</text>
+            <text x="142" y="0" class="letter">r</text>
+            <text x="148" y="0" class="letter">r</text>
+            <text x="154" y="0" class="letter">i</text>
+            <text x="158" y="0" class="letter">n</text>
+            <text x="166" y="0" class="letter">g</text>
+            <text x="174" y="0" class="letter"> </text>
+            <text x="178" y="0" class="letter">s</text>
+            <text x="186" y="0" class="letter">o</text>
+            <text x="194" y="0" class="letter">m</text>
+            <text x="206" y="0" class="letter">e</text>
+            <text x="214" y="0" class="letter"> </text>
+            <text x="218" y="0" class="letter">o</text>
+            <text x="226" y="0" class="letter">f</text>
+            <text x="232" y="0" class="letter"> </text>
+            <text x="236" y="0" class="letter">t</text>
+            <text x="242" y="0" class="letter">h</text>
+            <text x="250" y="0" class="letter">e</text>
+            <text x="258" y="0" class="letter"> </text>
+            <text x="262" y="0" class="letter">r</text>
+            <text x="268" y="0" class="letter">e</text>
+            <text x="276" y="0" class="letter">p</text>
+            <text x="284" y="0" class="letter">o</text>
+            <text x="292" y="0" class="letter">s</text>
+            <text x="300" y="0" class="letter">i</text>
+            <text x="304" y="0" class="letter">t</text>
+            <text x="310" y="0" class="letter">o</text>
+            <text x="318" y="0" class="letter">r</text>
+            <text x="324" y="0" class="letter">i</text>
+            <text x="328" y="0" class="letter">e</text>
+            <text x="336" y="0" class="letter">s</text>
+            <text x="344" y="0" class="letter">!</text>
+        </g>
+    </g>
+</svg>
