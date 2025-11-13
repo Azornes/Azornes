@@ -11,3 +11,8 @@
     <img src="https://raw.githubusercontent.com/Azornes/github-stats-transparent/output/generated/languages.svg" alt="Most Used Languages" />
   </a>
 </div>
+<p align="center">
+  <a href="https://github.com/Azornes/Azornes">
+    <img src="svg/love_share.svg" alt="Azornes Banner">
+  </a>
+</p>
