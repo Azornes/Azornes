@@ -4,8 +4,6 @@
   </a>
 </p>
 
-<img src="https://visitor-badge.laobi.icu/badge?page_id=Azornes.Azornes" alt="Invisible Visitor Badge" width="1" height="1" style="display:none; visibility:hidden;">
-
 <p align="center">
   <a href="https://github.com/Azornes/CustomBadge">
     <img src="https://gist.githubusercontent.com/Azornes/a7f50df83b26866359c52e56c9bb4b64/raw/badge.svg" alt="Badge" style="margin-right:10px;">
