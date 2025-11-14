@@ -16,6 +16,7 @@
   <a href="https://github.com/Azornes">
     <img src="https://raw.githubusercontent.com/Azornes/github-stats-transparent/output/generated/languages.svg" alt="Languages Stats">
   </a>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=Azornes.Azornes" alt="Invisible Visitor Badge" width="1" height="1" style="display:none; visibility:hidden;">
 </p>
 
 <p align="center">
