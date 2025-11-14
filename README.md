@@ -9,7 +9,7 @@
 <table align="center">
   <tr>
     <td align="center" valign="top">
-      <img src="https://gist.githubusercontent.com/Azornes/a7f50df83b26866359c52e56c9bb4b64/raw/57ea229e9f37883f765669588425cfb950447a82/badge.svg" height="150">
+      <img src="https://gist.githubusercontent.com/Azornes/a7f50df83b26866359c52e56c9bb4b64/raw/badge.svg">
     </td>
     <td align="center" valign="top">
       <a href="https://github.com/Azornes">
